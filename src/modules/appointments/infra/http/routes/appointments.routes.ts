@@ -9,9 +9,10 @@ const appointmentsRouter = Router();
 const appointmentsController = new AppointmentsController();
 const providerAppointmentsController = new ProviderAppointmentsController();
 
-appointmentsRouter.use(ensureAuthenticated);
+// appointmentsRouter.use(ensureAuthenticated);
 appointmentsRouter.post(
   '/',
+  ensureAuthenticated,
   celebrate({
     [Segments.BODY]: {
       provider_id: Joi.string().uuid().required(),

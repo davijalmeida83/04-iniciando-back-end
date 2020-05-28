@@ -11,7 +11,7 @@ import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
   token: string;
-  newPassword: string;
+  password: string;
 }
 
 @injectable()
@@ -27,7 +27,7 @@ class ResetPasswordService {
     private hashProvider: IHashProvider
   ) {}
 
-  async execute({ token, newPassword }: IRequest): Promise<void> {
+  async execute({ token, password }: IRequest): Promise<void> {
     const userToken = await this.userTokensRepository.findByToken(token);
 
     if (!userToken) {
@@ -45,7 +45,7 @@ class ResetPasswordService {
       throw new AppError('Token expired');
     }
 
-    user.password = await this.hashProvider.generateHash(newPassword);
+    user.password = await this.hashProvider.generateHash(password);
 
     await this.usersRepository.save(user);
   }
