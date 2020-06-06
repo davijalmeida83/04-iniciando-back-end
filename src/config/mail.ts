@@ -1,5 +1,5 @@
 interface IMailConfig {
-  driver: 'ethereal' | 'ses';
+  driver: 'ethereal' | 'ses' | 'zoho';
   dafaults: {
     from: {
       email: string;
@@ -12,8 +12,8 @@ export default {
   driver: process.env.MAIL_DRIVER || 'ethereal',
   dafaults: {
     from: {
-      email: 'davij_almeida@hotmail.com',
-      name: 'Davi Almeida',
+      email: 'suporte@darcasoftwares.com.br',
+      name: 'Suporte',
     },
   },
 } as IMailConfig;
