@@ -4,6 +4,6 @@ node_modules/
 build/
 temp/
 .env
-
+dist
 tmp/*
 !tmp/.gitkeep

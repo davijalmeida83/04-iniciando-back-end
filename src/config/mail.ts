@@ -13,7 +13,7 @@ export default {
   dafaults: {
     from: {
       email: 'suporte@darcasoftwares.com.br',
-      name: 'Suporte',
+      name: 'Darca Softwares',
     },
   },
 } as IMailConfig;

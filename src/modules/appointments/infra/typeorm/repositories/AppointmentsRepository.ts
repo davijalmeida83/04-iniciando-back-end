@@ -16,10 +16,10 @@ class AppointmentsRepository implements IAppointmentsrRepository {
 
   public async findByDate(
     date: Date,
-    provider_id: string
+    user_id: string
   ): Promise<Appointment | undefined> {
     const findAppointment = await this.ormRepository.findOne({
-      where: { date, provider_id },
+      where: { date, user_id },
     });
     return findAppointment;
   }
@@ -42,6 +42,7 @@ class AppointmentsRepository implements IAppointmentsrRepository {
         ),
       },
       relations: ['user'],
+      order: { date: 'ASC' },
     });
     return appointments;
   }
